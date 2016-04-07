@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">TemplateMobile</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="navigation_drawer_titulo">Template App</string>
+    <string name="navigation_drawer_emial">template@template.com</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_login">Sign in</string>
+
+
+    <!-- Strings related to DAO -->
+    <string name="msg_erro_sql_unknown">Uma exceção SQL desconhecida ocorreu durante a execução de um comando básico SQL!</string>
+    <string name="msg_erro_create_dao">Não foi possível criar uma instância do DAO</string>
+
+    <!-- Strings related to Filme -->
+    <string name="label_titulo">Título</string>
+    <string name="label_ano">Ano</string>
+    <string name="label_genero">Gênero</string>
+    <string name="label_duracao">Duração</string>
+    <string name="label_descricao">Descrição</string>
+    <string name="label_btn_salvar">Salvar</string>
+    <string name="label_btn_pesquisar">Pesquisar</string>
+    <string name="title_activity_teste">TesteActivity</string>
+
+</resources>

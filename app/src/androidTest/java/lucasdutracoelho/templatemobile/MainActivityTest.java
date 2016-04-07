@@ -31,6 +31,6 @@ public class MainActivityTest {
     @Test
     public void abreTelaConsulta(){
         onView(withId(R.id.fab)).perform(click());
-        onView(withId(R.id.image_poster_filme)).check(matches(isDisplayed()));
+        onView(withId(R.id.btnPesquisar)).check(matches(isDisplayed()));
     }
 }

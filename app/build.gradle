@@ -38,11 +38,6 @@ apt {
     }
 }
 
-sourceSets {
-    unitTest {
-        java.srcDir file('src/test/java/lucasdutracoelho/templatemobile')
-    }
-}
 
 android {
     compileSdkVersion 23
@@ -68,10 +63,7 @@ android {
     }
 }
 
-task unitTest(type:Test) {
-    testClassesDir = sourceSets.unitTest.output.classesDir
-    classpath = sourceSets.unitTest.runtimeClasspath
-}
+
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])

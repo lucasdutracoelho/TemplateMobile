@@ -25,4 +25,8 @@
     <string name="label_btn_pesquisar">Pesquisar</string>
     <string name="title_activity_teste">TesteActivity</string>
 
+    <!-- Strings related to Filme delete swipe -->
+    <string name="label_delete_item">Deletar?</string>
+    <string name="label_button_delete">Sim</string>
+
 </resources>

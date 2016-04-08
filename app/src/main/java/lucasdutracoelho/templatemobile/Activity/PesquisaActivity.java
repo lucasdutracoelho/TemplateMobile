@@ -23,6 +23,7 @@ import lucasdutracoelho.templatemobile.Manager.FilmeManager;
 import lucasdutracoelho.templatemobile.Manager.FilmeManagerImpl;
 import lucasdutracoelho.templatemobile.Model.Filme;
 import lucasdutracoelho.templatemobile.R;
+import lucasdutracoelho.templatemobile.Utils.Constantes;
 import lucasdutracoelho.templatemobile.Utils.UiUtils;
 
 @EActivity(R.layout.activity_pesquisa)
@@ -111,7 +112,7 @@ public class PesquisaActivity extends AppCompatActivity {
         try{
             progressDialog.dismiss();
             Intent intent = new Intent(this, FilmeActivity_.class);
-            intent.putExtra("FILME", filme);
+            intent.putExtra(Constantes.FILME_SERIALIZE, filme);
             startActivity(intent);
         }catch (Exception e){
             uiUtils.showToast(e.getMessage());

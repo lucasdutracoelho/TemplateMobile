@@ -22,6 +22,7 @@ import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
 
 import lucasdutracoelho.templatemobile.Adapter.ItemClick.OnDoubleClickListener;
@@ -34,6 +35,7 @@ import lucasdutracoelho.templatemobile.Manager.FilmeManager;
 import lucasdutracoelho.templatemobile.Manager.FilmeManagerImpl;
 import lucasdutracoelho.templatemobile.Model.Filme;
 import lucasdutracoelho.templatemobile.R;
+import lucasdutracoelho.templatemobile.Utils.Constantes;
 
 @EActivity(R.layout.activity_main)
 public class MainActivity extends AppCompatActivity
@@ -93,11 +95,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onResume(){
         super.onResume();
-        adapterBase.addItems(filmeManager.listarFilmes(), true);
-    }
-
-    protected void onListItemClick(Filme filme){
-        Toast.makeText(this, filme.getTitulo(), Toast.LENGTH_SHORT).show();
+        updateList();
     }
 
     @Click(R.id.fab)
@@ -169,13 +167,27 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean DeleteFilme(Filme filme) {
-        Toast.makeText(this, filme.getTitulo(), Toast.LENGTH_SHORT ).show();
-        return false;
+        filmeManager.deletar(filme);
+        return true;
     }
 
     @Override
     public void onItemDoubleClick(Filme item) {
-        Toast.makeText(this, item.getTitulo(), Toast.LENGTH_SHORT ).show();
+        Intent intent = new Intent(this, FilmeActivity_.class);
+        intent.putExtra(Constantes.FILME_SERIALIZE, item);
+        startActivity(intent);
+    }
+    @UiThread
+    public void updateList(){
+        adapterBase.addItems(filmeManager.listarFilmes(), true);
+    }
+
+    public FilmeManager getFilmeManager() {
+        return filmeManager;
+    }
+
+    public RecyclerViewAdapterBase getAdapterBase() {
+        return adapterBase;
     }
 }
 

@@ -1,5 +1,6 @@
 package lucasdutracoelho.templatemobile.Activity;
 
+import android.content.Intent;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -30,6 +31,7 @@ import lucasdutracoelho.templatemobile.Model.Filme;
 import lucasdutracoelho.templatemobile.R;
 import lucasdutracoelho.templatemobile.Rest.FactoryOmdbApi;
 import lucasdutracoelho.templatemobile.Rest.OmdbApi;
+import lucasdutracoelho.templatemobile.Utils.Constantes;
 import lucasdutracoelho.templatemobile.Utils.Impl.FactoryImageLoader;
 import lucasdutracoelho.templatemobile.Utils.Interfaces.ImageLoader;
 
@@ -80,7 +82,7 @@ public class FilmeActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Filme");
-        filme =(Filme) getIntent().getSerializableExtra("FILME");
+        filme =(Filme) getIntent().getSerializableExtra(Constantes.FILME_SERIALIZE);
         updateTela(filme);
     }
 
@@ -100,6 +102,7 @@ public class FilmeActivity extends AppCompatActivity {
         filmeManager.inserir(filme);
         Snackbar.make(coordinatorLayout, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show();
+        startActivity(new Intent(this, MainActivity_.class));
         finish();
 
     }

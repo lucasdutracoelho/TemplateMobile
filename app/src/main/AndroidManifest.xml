@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="lucasdutracoelho.templatemobile">
 
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
@@ -26,10 +28,6 @@
             android:name=".Activity.FilmeActivity_"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Activity.PesquisaActivity_" />
-        <activity
-            android:name=".Activity.TesteActivity_"
-            android:label="@string/title_activity_teste"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

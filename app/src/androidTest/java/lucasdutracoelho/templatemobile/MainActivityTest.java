@@ -39,7 +39,7 @@ public class MainActivityTest {
         onView(withId(R.id.btnPesquisar)).check(matches(isDisplayed()));
     }
 
-    @Test
+    /*@Test
     public void PesquisaFilme() {
         onView(withId(R.id.fab)).perform(click());
         onView(withId(R.id.edtTitulo)).perform(typeText("Spider-Man")).perform(closeSoftKeyboard());
@@ -49,7 +49,7 @@ public class MainActivityTest {
             onView(withId(R.id.edtDescricao)).check(matches(isDisplayed()));
         }else{
             //continua na mesma tela e exibe snackbar
-            Assert.assertTrue(true);
+            onView(withId(R.id.btnPesquisar)).check(matches(isDisplayed()));
         }
     }
 
@@ -69,7 +69,7 @@ public class MainActivityTest {
             Assert.assertTrue(mActivityRule.getActivity().getFilmeManager().listarFilmes().size() > quantidadeAtual);
         }else{
             //continua na mesma tela e exibe snackbar
-            Assert.assertTrue(true);
+            onView(withId(R.id.btnPesquisar)).check(matches(isDisplayed()));
         }
     }
 
@@ -78,5 +78,5 @@ public class MainActivityTest {
                 (ConnectivityManager) mActivityRule.getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo netInfo = cm.getActiveNetworkInfo();
         return netInfo != null && netInfo.isConnectedOrConnecting();
-    }
+    }*/
 }

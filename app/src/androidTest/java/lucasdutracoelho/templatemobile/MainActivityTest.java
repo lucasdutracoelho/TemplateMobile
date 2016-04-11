@@ -71,12 +71,12 @@ public class MainActivityTest {
             //continua na mesma tela e exibe snackbar
             onView(withId(R.id.btnPesquisar)).check(matches(isDisplayed()));
         }
-    }
+    }*/
 
     public boolean isOnline() {
         ConnectivityManager cm =
                 (ConnectivityManager) mActivityRule.getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo netInfo = cm.getActiveNetworkInfo();
         return netInfo != null && netInfo.isConnectedOrConnecting();
-    }*/
+    }
 }

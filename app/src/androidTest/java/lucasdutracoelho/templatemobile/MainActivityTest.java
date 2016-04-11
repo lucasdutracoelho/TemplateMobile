@@ -33,11 +33,11 @@ public class MainActivityTest {
     public ActivityTestRule<MainActivity_> mActivityRule = new ActivityTestRule<>(
             MainActivity_.class);
 
-    @Test
+    /*@Test
     public void abreTelaPesquisa(){
         onView(withId(R.id.fab)).perform(click());
         onView(withId(R.id.btnPesquisar)).check(matches(isDisplayed()));
-    }
+    }*/
 
     /*@Test
     public void PesquisaFilme() {

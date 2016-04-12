@@ -1,11 +1,14 @@
 package lucasdutracoelho.templatemobile;
 
+import android.app.KeyguardManager;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.PowerManager;
 import android.support.test.rule.ActivityTestRule;
 import android.test.suitebuilder.annotation.LargeTest;
 
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -29,17 +32,31 @@ import static android.support.test.espresso.matcher.ViewMatchers.withId;
 @RunWith(AndroidJUnit4.class)
 @LargeTest
 public class MainActivityTest {
+    private PowerManager.WakeLock mWakeLock;
+
     @Rule
     public ActivityTestRule<MainActivity_> mActivityRule = new ActivityTestRule<>(
             MainActivity_.class);
 
-    /*@Test
+    @Before
+    public void initialize(){
+        // Unlock the screen
+        KeyguardManager keyguard = (KeyguardManager) mActivityRule.getActivity().getSystemService(Context.KEYGUARD_SERVICE);
+        keyguard.newKeyguardLock(getClass().getSimpleName()).disableKeyguard();
+
+        // Start a wake lock
+        PowerManager power = (PowerManager) mActivityRule.getActivity().getSystemService(Context.POWER_SERVICE);
+        mWakeLock = power.newWakeLock(PowerManager.FULL_WAKE_LOCK | PowerManager.ACQUIRE_CAUSES_WAKEUP | PowerManager.ON_AFTER_RELEASE, getClass().getSimpleName());
+        mWakeLock.acquire();
+    }
+
+    @Test
     public void abreTelaPesquisa(){
         onView(withId(R.id.fab)).perform(click());
         onView(withId(R.id.btnPesquisar)).check(matches(isDisplayed()));
-    }*/
+    }
 
-    /*@Test
+    @Test
     public void PesquisaFilme() {
         onView(withId(R.id.fab)).perform(click());
         onView(withId(R.id.edtTitulo)).perform(typeText("Spider-Man")).perform(closeSoftKeyboard());
@@ -71,7 +88,7 @@ public class MainActivityTest {
             //continua na mesma tela e exibe snackbar
             onView(withId(R.id.btnPesquisar)).check(matches(isDisplayed()));
         }
-    }*/
+    }
 
     public boolean isOnline() {
         ConnectivityManager cm =
